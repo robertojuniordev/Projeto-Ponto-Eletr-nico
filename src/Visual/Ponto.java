@@ -149,6 +149,7 @@ public class Ponto extends javax.swing.JFrame {
             
             if(cpfUsuarioDigitado.equals(arrayHistorico.get(i).getCpf())){            
                 cadastrado = true;
+                break;
             }
                 /*JOptionPane.showMessageDialog(this, "Ponto registrado.");
             }else{
@@ -157,9 +158,9 @@ public class Ponto extends javax.swing.JFrame {
         }
         if(cadastrado){
             JOptionPane.showMessageDialog(this, "Ponto registrado.");
-            Historico historico = new Historico();
+            /*Historico historico = new Historico();
             historico.updateTable(arrayHistorico);
-            historico.setVisible(true);
+            historico.setVisible(true);*/
         }else{
             JOptionPane.showMessageDialog(this, "CPF não cadastrado.");
         }

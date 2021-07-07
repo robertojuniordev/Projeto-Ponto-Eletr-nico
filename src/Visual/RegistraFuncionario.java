@@ -171,13 +171,19 @@ public class RegistraFuncionario extends javax.swing.JFrame {
         
         arrayHistorico.add(new Funcionario(getNome, getCpf, getFuncao, getNascimento));
         
+        //Historico historico = new Historico();
+        //historico.updateTable(arrayHistorico);
+        //historico.setVisible(true);
+        
         JOptionPane.showMessageDialog(this, "Funcionário "+ getNome + " cadastrado com sucesso!");
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Historico().setVisible(true);
-        this.dispose();
+        Historico historico = new Historico();
+        historico.updateTable(arrayHistorico);
+        historico.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void inícioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inícioActionPerformed

@@ -25,7 +25,7 @@ public class Historico extends javax.swing.JFrame {
     public void updateTable(ArrayList<Funcionario> arrayHistorico){
         DefaultTableModel dtmHistorico = (DefaultTableModel) tabelaHistorico.getModel();
         for(int i=0; i<arrayHistorico.size(); i++){
-            Object[] dadosFunc = {arrayHistorico.get(i).getNome(), arrayHistorico.get(i).getCpf(), arrayHistorico.get(i).getNascimento(), arrayHistorico.get(i).getFuncao(), arrayHistorico.get(i).getDataHora()};
+            Object[] dadosFunc = {arrayHistorico.get(i).getNome(), arrayHistorico.get(i).getCpf(), arrayHistorico.get(i).getNascimento(), arrayHistorico.get(i).getFuncao()};
             dtmHistorico.addRow(dadosFunc);
         }
     }
@@ -43,14 +43,14 @@ public class Historico extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaHistorico = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tabelaHistorico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome", "CPF", "Nascimento", "Função", "Ponto"
+                "Nome", "CPF", "Nascimento", "Função"
             }
         ));
         jScrollPane1.setViewportView(tabelaHistorico);
