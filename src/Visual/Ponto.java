@@ -5,6 +5,9 @@
  */
 package Visual;
 
+import static Visual.RegistraFuncionario.arrayHistorico;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Pichau
@@ -61,6 +64,11 @@ public class Ponto extends javax.swing.JFrame {
         jLabel3.setText("CPF:");
 
         Registrar.setText("Registrar");
+        Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarActionPerformed(evt);
+            }
+        });
 
         SairUser.setText("Sair");
         SairUser.addActionListener(new java.awt.event.ActionListener() {
@@ -90,8 +98,7 @@ public class Ponto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(37, 37, 37)
-                        .addComponent(CPFusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(CPFusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 11, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -133,6 +140,30 @@ public class Ponto extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_SairUserActionPerformed
+
+    private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+        // TODO add your handling code here:
+        boolean cadastrado = false;
+        for(int i=0; i<arrayHistorico.size(); i++){
+            String cpfUsuarioDigitado = CPFusuario.getText();
+            
+            if(cpfUsuarioDigitado.equals(arrayHistorico.get(i).getCpf())){            
+                cadastrado = true;
+            }
+                /*JOptionPane.showMessageDialog(this, "Ponto registrado.");
+            }else{
+                JOptionPane.showMessageDialog(this, "CPF não cadastrado.");
+            }*/
+        }
+        if(cadastrado){
+            JOptionPane.showMessageDialog(this, "Ponto registrado.");
+            Historico historico = new Historico();
+            historico.updateTable(arrayHistorico);
+            historico.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "CPF não cadastrado.");
+        }
+    }//GEN-LAST:event_RegistrarActionPerformed
 
     /**
      * @param args the command line arguments

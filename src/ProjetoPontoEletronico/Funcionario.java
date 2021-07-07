@@ -5,17 +5,27 @@
  */
 package ProjetoPontoEletronico;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 /**
  *
  * @author Pichau
  */
 public class Funcionario {
     private String nome;
-    private int cpf;
+    private String cpf;
     private String funcao;
     private String nascimento;
+    private String dataHora;
+
+
     
-    public Funcionario(String nome, int cpf, String funcao, String nascimento){
+    public Funcionario(String nome, String cpf, String funcao, String nascimento){
         this.nome = nome;
         this.cpf = cpf;
         this.funcao = funcao;
@@ -30,11 +40,11 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -52,6 +62,15 @@ public class Funcionario {
 
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
+    }
+    
+    public String getDataHora() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return dtf.format(LocalDateTime.now());
+    }
+
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
     }
     
 }

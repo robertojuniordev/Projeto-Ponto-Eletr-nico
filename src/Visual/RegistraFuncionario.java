@@ -6,6 +6,9 @@
 package Visual;
 
 import ProjetoPontoEletronico.Funcionario;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -36,9 +39,11 @@ public class RegistraFuncionario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         funcaoCadastro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        nascimentoCadsatro = new com.toedter.calendar.JDateChooser();
+        nascimentoCadastro = new com.toedter.calendar.JDateChooser();
         Cadastrar = new javax.swing.JButton();
         SairAdmin = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        início = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Funcionário");
@@ -72,6 +77,20 @@ public class RegistraFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Histórico");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        início.setText("Início");
+        início.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inícioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,7 +100,8 @@ public class RegistraFuncionario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nascimentoCadsatro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Cadastrar)
+                            .addComponent(nascimentoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel3)
@@ -91,10 +111,13 @@ public class RegistraFuncionario extends javax.swing.JFrame {
                                 .addComponent(cpfCadastro)
                                 .addComponent(nomeCadastro))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(Cadastrar)
-                        .addGap(58, 58, 58)
-                        .addComponent(SairAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(153, 153, 153)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(30, 30, 30)
+                                .addComponent(início, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SairAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -115,12 +138,15 @@ public class RegistraFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nascimentoCadsatro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nascimentoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cadastrar)
-                    .addComponent(SairAdmin))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(início))
+                .addGap(18, 18, 18)
+                .addComponent(SairAdmin)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,14 +164,29 @@ public class RegistraFuncionario extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-        String nomeDigitado = nomeCadastro.getText();
-        int cpfDigitado =  Integer.parseInt(cpfCadastro.getText());
-        String funcaoDigitada = funcaoCadastro.getText();
-        String nascimentoDigitado = nascimentoCadsatro.getDateFormatString();
+        String getNome = nomeCadastro.getText();
+        String getCpf =  cpfCadastro.getText();
+        String getFuncao = funcaoCadastro.getText();
+        String getNascimento = ((JTextField)nascimentoCadastro.getDateEditor().getUiComponent()).getText();
         
-        Funcionario novoFuncionario = new Funcionario(nomeDigitado, cpfDigitado, funcaoDigitada, nascimentoDigitado);
+        arrayHistorico.add(new Funcionario(getNome, getCpf, getFuncao, getNascimento));
+        
+        JOptionPane.showMessageDialog(this, "Funcionário "+ getNome + " cadastrado com sucesso!");
     }//GEN-LAST:event_CadastrarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Historico().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void inícioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inícioActionPerformed
+        // TODO add your handling code here:
+        new Ponto().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_inícioActionPerformed
+
+    public static ArrayList<Funcionario> arrayHistorico = new ArrayList<>();
     /**
      * @param args the command line arguments
      */
@@ -186,11 +227,13 @@ public class RegistraFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton SairAdmin;
     private javax.swing.JTextField cpfCadastro;
     private javax.swing.JTextField funcaoCadastro;
+    private javax.swing.JButton início;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private com.toedter.calendar.JDateChooser nascimentoCadsatro;
+    private com.toedter.calendar.JDateChooser nascimentoCadastro;
     private javax.swing.JTextField nomeCadastro;
     // End of variables declaration//GEN-END:variables
 }

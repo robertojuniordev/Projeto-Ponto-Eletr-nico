@@ -5,6 +5,10 @@
  */
 package Visual;
 
+import ProjetoPontoEletronico.Funcionario;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Pichau
@@ -17,6 +21,15 @@ public class Historico extends javax.swing.JFrame {
     public Historico() {
         initComponents();
     }
+    
+    public void updateTable(ArrayList<Funcionario> arrayHistorico){
+        DefaultTableModel dtmHistorico = (DefaultTableModel) tabelaHistorico.getModel();
+        for(int i=0; i<arrayHistorico.size(); i++){
+            Object[] dadosFunc = {arrayHistorico.get(i).getNome(), arrayHistorico.get(i).getCpf(), arrayHistorico.get(i).getNascimento(), arrayHistorico.get(i).getFuncao(), arrayHistorico.get(i).getDataHora()};
+            dtmHistorico.addRow(dadosFunc);
+        }
+    }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +50,7 @@ public class Historico extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Função", "Ponto"
+                "Nome", "CPF", "Nascimento", "Função", "Ponto"
             }
         ));
         jScrollPane1.setViewportView(tabelaHistorico);
@@ -99,4 +112,6 @@ public class Historico extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaHistorico;
     // End of variables declaration//GEN-END:variables
+
+    
 }
