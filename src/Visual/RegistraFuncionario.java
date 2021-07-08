@@ -44,6 +44,7 @@ public class RegistraFuncionario extends javax.swing.JFrame {
         SairAdmin = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         início = new javax.swing.JButton();
+        HistPonto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Funcionário");
@@ -91,6 +92,13 @@ public class RegistraFuncionario extends javax.swing.JFrame {
             }
         });
 
+        HistPonto.setText("Hist. Ponto");
+        HistPonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistPontoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,7 +108,6 @@ public class RegistraFuncionario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Cadastrar)
                             .addComponent(nascimentoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -111,14 +118,21 @@ public class RegistraFuncionario extends javax.swing.JFrame {
                                 .addComponent(cpfCadastro)
                                 .addComponent(nomeCadastro))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addContainerGap()
+                        .addComponent(Cadastrar)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(SairAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1)
-                                .addGap(30, 30, 30)
-                                .addComponent(início, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(SairAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(HistPonto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                .addComponent(início, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +157,8 @@ public class RegistraFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cadastrar)
                     .addComponent(jButton1)
-                    .addComponent(início))
+                    .addComponent(início)
+                    .addComponent(HistPonto))
                 .addGap(18, 18, 18)
                 .addComponent(SairAdmin)
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -192,6 +207,14 @@ public class RegistraFuncionario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_inícioActionPerformed
 
+    private void HistPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistPontoActionPerformed
+        // TODO add your handling code here:
+        HistoricoPonto ponto = new HistoricoPonto();
+        ponto.updateTable2(arrayPonto);
+        ponto.setVisible(true);
+        //new HistoricoPonto().setVisible(true);
+    }//GEN-LAST:event_HistPontoActionPerformed
+
     public static ArrayList<Funcionario> arrayHistorico = new ArrayList<>();
     public static ArrayList<Funcionario> arrayPonto = new ArrayList<>();
     /**
@@ -231,6 +254,7 @@ public class RegistraFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar;
+    private javax.swing.JButton HistPonto;
     private javax.swing.JButton SairAdmin;
     private javax.swing.JTextField cpfCadastro;
     private javax.swing.JTextField funcaoCadastro;
