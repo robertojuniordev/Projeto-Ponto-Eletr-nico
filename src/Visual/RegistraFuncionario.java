@@ -193,6 +193,7 @@ public class RegistraFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_inícioActionPerformed
 
     public static ArrayList<Funcionario> arrayHistorico = new ArrayList<>();
+    public static ArrayList<Funcionario> arrayPonto = new ArrayList<>();
     /**
      * @param args the command line arguments
      */

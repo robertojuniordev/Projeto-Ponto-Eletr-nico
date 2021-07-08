@@ -5,7 +5,9 @@
  */
 package Visual;
 
+import ProjetoPontoEletronico.Funcionario;
 import static Visual.RegistraFuncionario.arrayHistorico;
+import static Visual.RegistraFuncionario.arrayPonto;
 import javax.swing.JOptionPane;
 
 /**
@@ -144,11 +146,13 @@ public class Ponto extends javax.swing.JFrame {
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
         // TODO add your handling code here:
         boolean cadastrado = false;
+        int indicePonto = 0;
         for(int i=0; i<arrayHistorico.size(); i++){
             String cpfUsuarioDigitado = CPFusuario.getText();
             
             if(cpfUsuarioDigitado.equals(arrayHistorico.get(i).getCpf())){            
                 cadastrado = true;
+                indicePonto = i;
                 break;
             }
                 /*JOptionPane.showMessageDialog(this, "Ponto registrado.");
@@ -158,9 +162,12 @@ public class Ponto extends javax.swing.JFrame {
         }
         if(cadastrado){
             JOptionPane.showMessageDialog(this, "Ponto registrado.");
-            /*Historico historico = new Historico();
-            historico.updateTable(arrayHistorico);
-            historico.setVisible(true);*/
+            HistoricoPonto ponto = new HistoricoPonto();
+            arrayPonto.add(arrayHistorico.get(indicePonto));
+            ponto.updateTable2(arrayPonto);
+            //arrayPonto.add(new Funcionario(getNome, getCpf, getFuncao, getNascimento));
+            
+            ponto.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(this, "CPF não cadastrado.");
         }
