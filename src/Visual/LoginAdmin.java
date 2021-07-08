@@ -39,10 +39,13 @@ public class LoginAdmin extends javax.swing.JFrame {
         setTitle("Admin");
         setResizable(false);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/identificador.png"))); // NOI18N
         jLabel1.setText("Usuário:");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/senha.png"))); // NOI18N
         jLabel2.setText("Senha:");
 
+        AcessarAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/accept.png"))); // NOI18N
         AcessarAdmin.setText("Acessar");
         AcessarAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +84,7 @@ public class LoginAdmin extends javax.swing.JFrame {
                 .addComponent(SenhaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(AcessarAdmin)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();

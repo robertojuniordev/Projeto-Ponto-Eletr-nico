@@ -58,7 +58,7 @@
               <Component id="SenhaAdmin" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="AcessarAdmin" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,11 +66,17 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagens/identificador.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagens/senha.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
@@ -80,6 +86,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="AcessarAdmin">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagens/accept.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Acessar"/>
       </Properties>
       <Events>
