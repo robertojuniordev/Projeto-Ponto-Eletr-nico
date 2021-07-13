@@ -155,18 +155,13 @@ public class Ponto extends javax.swing.JFrame {
                 indicePonto = i;
                 break;
             }
-                /*JOptionPane.showMessageDialog(this, "Ponto registrado.");
-            }else{
-                JOptionPane.showMessageDialog(this, "CPF não cadastrado.");
-            }*/
+           
         }
         if(cadastrado){
             JOptionPane.showMessageDialog(this, "Ponto registrado.");
             HistoricoPonto ponto = new HistoricoPonto();
             arrayPonto.add(arrayHistorico.get(indicePonto));
-            ponto.updateTable2(arrayPonto);
-            //arrayPonto.add(new Funcionario(getNome, getCpf, getFuncao, getNascimento));
-            
+            ponto.updateTable2(arrayPonto);          
             ponto.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(this, "CPF não cadastrado.");
